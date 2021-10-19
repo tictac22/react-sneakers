@@ -1,0 +1,45 @@
+.header {
+    padding-top: 44px;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 44px;
+        border-bottom: 1px solid #F4F4F4;
+    }
+}
+.logo {
+    display: flex;
+    align-items: center;
+    &__text {
+        margin-left: 16px;
+        display: flex;
+        flex-direction: column;
+    }
+}
+.nav {
+    display: flex;
+    align-items: center;
+    &__cart {
+        display: flex;
+        align-items: center;
+    }
+    &__price {
+        display: flex;
+        align-items: center;
+        margin-left: 12px;
+        & span {
+            margin-right: 5px;
+        }
+    }
+    &__favorites {
+        width: 21px;
+        height: 19px;
+        margin: 0px 30px;
+    }
+    &__profile {
+        width: 20px;
+        height: 20px;
+    }
+}
