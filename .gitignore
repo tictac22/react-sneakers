@@ -11,6 +11,8 @@
 # production
 /build
 
+react-app-env.d.ts
+tsconfig.json
 # misc
 .DS_Store
 .env.local
@@ -22,3 +24,7 @@ yarn.lock
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# git add .
+# git commit -m "comment"
+# git push origin master

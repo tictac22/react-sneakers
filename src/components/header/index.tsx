@@ -1,5 +1,11 @@
-import styles from "../styles/header.module.scss";
+import { useState } from "react";
+import styles from "../../styles/header.module.scss";
+import { NavBar } from "./navbar";
 export const Header:React.FC = () => {
+    const [isMenu,setMenu] = useState<boolean>(false);
+    const showMenu = ():void => {
+        setMenu(!isMenu);
+    }
     return(
         <header className={styles.header}>
             <div className="container">
@@ -16,16 +22,11 @@ export const Header:React.FC = () => {
                         </div>
                     </div>
                     <nav className={styles.nav}>
-                        <div className={styles.nav__cart}>
-                            <img src="/svg/cart.svg" alt="cart"/>
-                            <p className={styles.nav__price}><span>1205</span>руб.</p>
+                        <div onClick={showMenu} className={styles.nav__burger}>
+                            <span></span>
                         </div>
-                        <div className={styles.nav__favorites}>
-                            <img src="/svg/favorite.svg" alt="favorite"/>
-                        </div>
-                        <div className={styles.nav__profile}>
-                            <img src="/svg/profile.svg" alt="profile"/>
-                        </div>
+                        {isMenu ? <NavBar text={{favorite:"любимое",profile:"профиль"}}  mobile={isMenu} /> : <NavBar mobile={isMenu}/>}
+                        
                     </nav>
                 </div>
             </div>

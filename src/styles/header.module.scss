@@ -1,3 +1,4 @@
+@import "./variables";
 .header {
     padding-top: 44px;
 
@@ -16,11 +17,94 @@
         margin-left: 16px;
         display: flex;
         flex-direction: column;
+        & h2 {
+            display: none;
+            @media (min-width:$sm) {
+                display: block;
+            }
+        }
+        & p {
+            display: none;
+            @media (min-width:$md) {
+                display: block;
+            }
+        }
     }
 }
 .nav {
     display: flex;
     align-items: center;
+    &__active {
+        @media(max-width: $md) {
+            position: fixed;
+            top: 0;
+            right: 0px;
+            width: 20%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 10px;
+            background-color: #c8c8c8;
+            & .nav__favorites {
+                margin:10px 0;
+            }
+            & .nav__favorites, & .nav__profile {
+                display: flex;
+                align-items: center;
+                & p {
+                    margin-left: 12px;
+                    display: block;
+                }
+            }
+            &__menu {
+                display: flex;
+            }
+        }
+    }
+    &__unactive {
+        display: none;
+        @media (min-width:$md) {
+            display: block;
+        }
+    }
+    &__burger {
+        width: 22px;
+        height: 15px;
+        display: block;
+        cursor: pointer;
+        position: relative;
+        & span,&:before,&:after {
+            position: absolute;
+            left:0;
+            width: 100%;
+            height: 5%;
+            background-color: $gray;
+        }
+        &:before, &:after {
+            content: "";
+        }
+        &:before {
+            top: 0;
+        }
+        &:after {
+            bottom: 0;
+        }
+        & span {
+            top: 50%;
+            transform: translate(0%,-50%);
+        }
+        @media (min-width:$md) {
+            display: none;
+        }
+    }
+    &__menu {
+        
+        @media (min-width:$md) {
+            display: flex;
+            align-items: center;
+        }
+    }
     &__cart {
         display: flex;
         align-items: center;
@@ -37,9 +121,15 @@
         width: 21px;
         height: 19px;
         margin: 0px 30px;
+        & p {
+            display: none;
+        }
     }
     &__profile {
         width: 20px;
         height: 20px;
+        & p {
+            display: none;
+        }
     }
 }

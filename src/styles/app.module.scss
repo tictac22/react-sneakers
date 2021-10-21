@@ -1,0 +1,14 @@
+.main {
+    margin-top: 39px;
+    margin-bottom: 22px;
+    &__top {
+        display:flex;
+        justify-content: space-between;
+
+    }
+    &__grid {
+        display: flex;
+        margin: 0 -20px;
+        margin-top: 40px;
+    }
+}
