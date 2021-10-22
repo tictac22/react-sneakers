@@ -17,18 +17,25 @@
         margin-left: 16px;
         display: flex;
         flex-direction: column;
-        & h2 {
-            display: none;
+    }
+    &__title, &__subtitle {
+        display: none;
+        @media (min-width:$sm) {
+            display: block;
+        }
+    }
+    &__title {
             @media (min-width:$sm) {
-                display: block;
+                font-weight: bold;
+                font-size: 20px;
+                color:$black;
             }
-        }
-        & p {
-            display: none;
+    }
+    &__subtitle {
             @media (min-width:$md) {
-                display: block;
+                font-weight: normal;
+                color: $grayother;
             }
-        }
     }
 }
 .nav {
@@ -37,15 +44,31 @@
     &__active {
         @media(max-width: $md) {
             position: fixed;
+            z-index: 100;
             top: 0;
             right: 0px;
-            width: 20%;
+            width: 150px;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding: 10px;
             background-color: #c8c8c8;
+            & .nav__close {
+                @media(max-width: $md) { 
+                    display: flex;
+                    align-items: center;
+                    position: absolute;
+                    right: 20px;
+                    top:20px;
+                    cursor: pointer;
+                    & img {
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 4px;
+                    }
+                }
+            }
             & .nav__favorites {
                 margin:10px 0;
             }
@@ -68,12 +91,16 @@
             display: block;
         }
     }
+    &__close {
+        display: none;
+    }
     &__burger {
         width: 22px;
         height: 15px;
         display: block;
         cursor: pointer;
         position: relative;
+        
         & span,&:before,&:after {
             position: absolute;
             left:0;
@@ -113,6 +140,10 @@
         display: flex;
         align-items: center;
         margin-left: 12px;
+        font-weight: 600;
+        color: #5C5C5C;
+        font-style: normal;
+
         & span {
             margin-right: 5px;
         }

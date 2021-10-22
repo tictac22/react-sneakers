@@ -1,0 +1,49 @@
+@import "./variables";
+.main {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    @media(min-width:$sm) {
+        margin-top: 39px;
+        margin-bottom: 22px;
+    }
+    &__title {
+        font-weight: bold;
+        font-size: 22px;
+        color: $black;
+        @media (min-width:$sm) {
+            font-size: 32px;
+        }
+    }
+    &__top {
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        @media(min-width: $sm) {
+            flex-direction: row;
+        }
+
+    }
+    &__grid {
+        margin-top: 30px;
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 40px;
+    }
+    
+}
+.search {
+    display: flex;
+    align-items: center;
+    border: 1px solid #F3F3F3;
+    border-radius: 10px;
+    padding: 15px 0px 15px 18px;
+    margin-top: 20px;
+    @media(min-width: $sm) {
+        margin-top: 0px;
+    }
+    & img {
+        margin-right: 15px;
+    }
+}

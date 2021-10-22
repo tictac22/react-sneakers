@@ -5,11 +5,7 @@ import "./styles/global.scss";
 
 ReactDOM.render(
   <React.StrictMode>
-    <div className="layout">
-      <div className="wrapper">
-        <App />
-      </div>
-    </div>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
