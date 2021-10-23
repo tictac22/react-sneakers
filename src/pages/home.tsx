@@ -1,6 +1,7 @@
 import styles from "../styles/home.module.scss";
 import { Header } from '../components/header/';
 import { Cart } from "../components/cart";
+import { ShopCart } from "../components/shopCart";
 
 export const Home:React.FC =() =>{
   return (
@@ -25,6 +26,7 @@ export const Home:React.FC =() =>{
           </div>
         </div>
       </main>
+      <ShopCart/>
     </div>
   );
 }
