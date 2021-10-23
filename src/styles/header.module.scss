@@ -135,6 +135,7 @@
     &__cart {
         display: flex;
         align-items: center;
+        cursor: pointer;
     }
     &__price {
         display: flex;
@@ -143,7 +144,6 @@
         font-weight: 600;
         color: #5C5C5C;
         font-style: normal;
-
         & span {
             margin-right: 5px;
         }

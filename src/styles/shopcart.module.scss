@@ -8,14 +8,35 @@
     z-index: 200;
     display: flex;
     justify-content: flex-end;
+    transition: all 0.2s ease-in-out;
+    visibility: hidden;
+    pointer-events: none;
+    &__active {
+        right: 0;
+        visibility: visible;
+        pointer-events: all;
+        transform: translateX(0);
+        & .cart__inner {
+            transform: translate(0);
+        }
+        & .cart__shadow {
+            visibility: visible;
+            pointer-events: all;
+        }
+    }
     &__shadow {
         opacity: 0.5;
         width: 100%;
         height: 100%;
         background: #000000;
         position: absolute;
+        cursor: pointer;
+        visibility: hidden;
+        pointer-events: none;
     }
     &__inner {
+        transition: all 0.3s linear;
+        transform: translateX(100%);
         position: relative;
         z-index: 300;
         width: 385px;

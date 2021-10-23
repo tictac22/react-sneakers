@@ -1,8 +1,16 @@
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import styles from "../styles/shopcart.module.scss";
+import {checkMenu} from "../redux/menu";
 export const ShopCart:React.FC = () => {
+    const {showMenu} = useAppSelector((state=>state.menu));
+    const dispatch = useAppDispatch()
+    
+    const hideMenu = ():void => {
+        dispatch(checkMenu(false))
+    }
     return (
-        <div className={styles.cart}>
-            <div className={styles.cart__shadow}></div>
+        <div className={`${styles.cart} ${showMenu? styles.cart__active : "" } `} >
+            <div onClick={hideMenu} className={styles.cart__shadow}></div>
             <div className={styles.cart__inner}>
                 <h2 className={styles.cart__title}>
                     Корзина
@@ -51,4 +59,3 @@ export const ShopCart:React.FC = () => {
         </div>
     )
 }
-//<img src="/svg/delete.svg" alt="delete"/>
