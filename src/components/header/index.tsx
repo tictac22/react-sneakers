@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useAppSelector ,useAppDispatch} from "../../redux/hooks";
+import { checkMenu, checkMobileMenu } from "../../redux/menu";
 import styles from "../../styles/header.module.scss";
 import { NavBar } from "./navbar";
 export const Header:React.FC = () => {
-    const [isMenu,setMenu] = useState<boolean>(false);
-    const showMenu = ():void => {
-        setMenu(!isMenu);
+    const {showMenu, showMobileMenu} = useAppSelector(state=>state.menu);
+    const dispatch = useAppDispatch();
+    const toShowMobileMenu = ():void => {
+        dispatch(checkMobileMenu(true))
     }
     return(
         <header className={styles.header}>
@@ -22,10 +25,10 @@ export const Header:React.FC = () => {
                         </div>
                     </div>
                     <nav className={styles.nav}>
-                        <div onClick={showMenu} className={styles.nav__burger}>
+                        <div onClick={toShowMobileMenu} className={styles.nav__burger}>
                             <span></span>
                         </div>
-                        <NavBar mobile={isMenu}/>
+                        <NavBar mobile={showMobileMenu}/>
                     </nav>
                 </div>
             </div>

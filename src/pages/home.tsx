@@ -2,6 +2,7 @@ import styles from "../styles/home.module.scss";
 import { Header } from '../components/header/';
 import { Cart } from "../components/cart";
 import { ShopCart } from "../components/shopCart";
+import { Slider } from "../components/slider.jsx";
 
 export const Home:React.FC =() =>{
   return (
@@ -9,6 +10,7 @@ export const Home:React.FC =() =>{
       <Header/>
       <main className={styles.main}>
         <div className="container">
+        <Slider/>
           <div className={styles.main__top}>
             <h1 className={styles.main__title}>
             Все кроссовки

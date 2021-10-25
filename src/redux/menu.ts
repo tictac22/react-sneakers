@@ -3,10 +3,12 @@
 import {createSlice,PayloadAction} from "@reduxjs/toolkit";
 
 interface State {
-    showMenu:boolean
+    showMenu:boolean,
+    showMobileMenu:boolean
 }
 const initialState: State = {
-    showMenu:false
+    showMenu:false,
+    showMobileMenu:false
 }
 
 export const menuSlicer = createSlice({
@@ -15,8 +17,11 @@ export const menuSlicer = createSlice({
     reducers: {
         checkMenu:(state,{payload}:PayloadAction<boolean>) => {
             state.showMenu = payload;
+        },
+        checkMobileMenu:(state,{payload}:PayloadAction<boolean>) => {
+            state.showMobileMenu = payload;
         }
     }
 })
-export const {checkMenu} = menuSlicer.actions
+export const {checkMenu,checkMobileMenu} = menuSlicer.actions
 export const menuSlice = menuSlicer.reducer

@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react";
-import { useAppDispatch } from "../../redux/hooks";
-import { checkMenu } from "../../redux/menu";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { checkMenu, checkMobileMenu } from "../../redux/menu";
 import styles from "../../styles/header.module.scss";
 interface Props {
     mobile:boolean,
 }
 export const NavBar:React.FC<Props> = ({mobile}) => {
+    const {showMobileMenu} = useAppSelector(state => state.menu)
     const dispatch = useAppDispatch()
     const showCart = ():void => {
         dispatch(checkMenu(true))
     }
+    const closeMobileMenu = ():void => {
+        dispatch(checkMobileMenu(false))
+    }
     return (
         <div className={`${styles.nav__menu} ${mobile ? `${styles.nav__active}` : `${styles.nav__unactive}`}`}>
-                            <div className={styles.nav__close}>
+                            <div onClick={closeMobileMenu} className={styles.nav__close}>
                                 <img src="/svg/close.svg"/>
                                 <p>Cкрыть</p> 
                             </div>
