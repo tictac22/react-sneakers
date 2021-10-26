@@ -1,13 +1,38 @@
 @import "./variables";
 .header {
     padding-top: 44px;
-
+    position: relative;
     &__container {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding-bottom: 44px;
         border-bottom: 1px solid #F4F4F4;
+    }
+    @media (max-width:$md) {
+        &__shadow {
+            opacity: 0.5;
+            width: 100vw;
+            height: 100vh;
+            background: #000000;
+            position: fixed;
+            top:0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 100;
+            cursor: pointer;
+            visibility: hidden;
+            pointer-events: none;
+            right: -100%;
+            
+            &__active {
+                visibility: visible;
+                pointer-events: all;
+                right: 0;
+            }
+        }
+
     }
 }
 .logo {
@@ -41,58 +66,55 @@
 .nav {
     display: flex;
     align-items: center;
-    &__active {
-        @media(max-width: $md) {
+    transition: all 0.3s linear;
+    &__unactive {
+
+    }
+    &__menu {
+        transition: all 0.3s linear;
+        @media (max-width:$md) {
+            visibility: hidden;
+            pointer-events: none;
+            position: absolute;
             position: fixed;
-            z-index: 100;
+            z-index: 400;
             top: 0;
             right: 0px;
+            //right: -50%;
             width: 150px;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding: 10px;
-            background-color: #c8c8c8;
-            & .nav__close {
-                @media(max-width: $md) { 
-                    display: flex;
-                    align-items: center;
-                    position: absolute;
-                    right: 20px;
-                    top:20px;
-                    cursor: pointer;
-                    & img {
-                        width: 20px;
-                        height: 20px;
-                        margin-right: 4px;
-                    }
-                }
-            }
-            & .nav__favorites {
-                margin:10px 0;
-            }
-            & .nav__favorites, & .nav__profile {
-                display: flex;
-                align-items: center;
-                & p {
-                    margin-left: 12px;
-                    display: block;
-                }
-            }
-            &__menu {
-                display: flex;
-            }
+            background-color: #fff;
+            box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+            transform: translateX(100%);
         }
     }
-    &__unactive {
-        display: none;
-        @media (min-width:$md) {
-            display: block;
-        }
+    &__active {
+        transition: all 0.3s linear;    
+        pointer-events: all;
+        visibility: visible;
+        transform: translateX(0);
+        right: 0;        
+
     }
     &__close {
         display: none;
+        @media(max-width: $md) { 
+            display: flex;
+            align-items: center;
+            position: absolute;
+            right: 20px;
+            top:20px;
+            cursor: pointer;
+            & img {
+                width: 20px;
+                height: 20px;
+                margin-right: 4px;
+            }
+        }
     }
     &__burger {
         width: 22px;
@@ -126,7 +148,6 @@
         }
     }
     &__menu {
-        
         @media (min-width:$md) {
             display: flex;
             align-items: center;
@@ -137,15 +158,14 @@
         align-items: center;
         cursor: pointer;
     }
-    &__price {
+    &__money {
         display: flex;
         align-items: center;
-        margin-left: 12px;
         font-weight: 600;
         color: #5C5C5C;
         font-style: normal;
-        & span {
-            margin-right: 5px;
+        & p {
+            margin-left: 10px;
         }
     }
     &__favorites {
@@ -155,6 +175,9 @@
         & p {
             display: none;
         }
+        @media (max-width:$md) {
+            margin:10px 0;
+        }
     }
     &__profile {
         width: 20px;
@@ -162,5 +185,16 @@
         & p {
             display: none;
         }
+    }
+    .nav__favorites, .nav__profile, .nav__money {
+        @media (max-width:$md) {
+               display: flex;
+               align-items: center;
+               & p {
+                   margin-left: 12px;
+                   display: block;
+               }
+           
+       }
     }
 }

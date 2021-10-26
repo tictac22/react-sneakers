@@ -1,16 +1,20 @@
-import { useState } from "react";
+
 import { useAppSelector ,useAppDispatch} from "../../redux/hooks";
-import { checkMenu, checkMobileMenu } from "../../redux/menu";
+import { checkMobileMenu } from "../../redux/menu";
 import styles from "../../styles/header.module.scss";
 import { NavBar } from "./navbar";
 export const Header:React.FC = () => {
-    const {showMenu, showMobileMenu} = useAppSelector(state=>state.menu);
+    const { showMobileMenu} = useAppSelector(state=>state.menu);
     const dispatch = useAppDispatch();
     const toShowMobileMenu = ():void => {
         dispatch(checkMobileMenu(true))
     }
+    const hideMobileMenu = ():void => {
+        dispatch(checkMobileMenu(false))
+    }
     return(
         <header className={styles.header}>
+            <div onClick={hideMobileMenu} className={`${styles.header__shadow} ${showMobileMenu ? styles.header__shadow__active : ""}`}></div>
             <div className="container">
                 <div className={styles.header__container}>
                     <div className={styles.logo}>
