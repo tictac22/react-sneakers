@@ -187,6 +187,7 @@
         }
     }
     .nav__favorites, .nav__profile, .nav__money {
+        cursor: pointer;
         @media (max-width:$md) {
                display: flex;
                align-items: center;

@@ -29,7 +29,8 @@
         margin-top: 30px;
         display: grid;
         align-items: center;
-        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(210px, 210px));
+        justify-content: center;
         gap: 40px;
     }
     
@@ -41,6 +42,10 @@
     border-radius: 10px;
     padding: 15px 0px 15px 18px;
     margin-top: 20px;
+    margin-left: 20px;
+    &__input {
+        background-color: #fff;
+    }
     @media(min-width: $sm) {
         margin-top: 0px;
     }
