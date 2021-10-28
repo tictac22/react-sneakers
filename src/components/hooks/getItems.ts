@@ -1,10 +1,10 @@
-import { CartItem } from './../../pages/home';
+import { ICartItem } from './../interfaces/index';
 import {useState, useEffect } from 'react';
 
 export const useGetAllItems = () => {
     const [isLoading,setLoading] = useState<boolean>(false);
     const [isError,setError] = useState<boolean>(false);
-    const [cartItems,setCartItems] = useState<CartItem[]>([]);
+    const [cartItems,setCartItems] = useState<ICartItem[]>([]);
     useEffect(()=>{
         const request = async ():Promise<void> => {
           try{

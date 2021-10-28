@@ -1,6 +1,6 @@
 
 import { useAppSelector ,useAppDispatch} from "../../redux/hooks";
-import { checkMobileMenu } from "../../redux/menu";
+import { checkMobileMenu } from "../../redux/slicers/menu";
 import styles from "../../styles/header.module.scss";
 import { NavBar } from "./navbar";
 export const Header:React.FC = () => {

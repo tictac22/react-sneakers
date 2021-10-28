@@ -169,3 +169,31 @@ address {
       padding-right: calc(20px + (81-20) * ((100vw - 320px) / (1002 - 320)));
    }
 }
+.btn {
+      width: 100%;
+      background-color: #9DD558;
+      border-radius: 18px;
+      text-align: center;
+      padding: 20px 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      font-weight: 600;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s linear;
+      &:hover {
+          background-color: #84b648;
+          & img {
+              right: 25px; 
+          }
+      }
+      & img {
+          transition: all 0.3s linear;
+          @media (max-width:$md) {
+              display: none;
+          }
+      }
+}

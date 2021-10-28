@@ -1,12 +1,13 @@
 
-import { useAppDispatch } from "../../redux/hooks";
-import { checkMenu, checkMobileMenu } from "../../redux/menu";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { checkMenu, checkMobileMenu } from "../../redux/slicers/menu";
 import styles from "../../styles/header.module.scss";
 interface Props {
     mobile:boolean,
 }
 export const NavBar:React.FC<Props> = ({mobile}) => {
-    const dispatch = useAppDispatch()
+    const {totalPrice} = useAppSelector(state=>state.shop);
+    const dispatch = useAppDispatch();
     const showCart = ():void => {
         dispatch(checkMenu(true))
         dispatch(checkMobileMenu(false))
@@ -22,7 +23,7 @@ export const NavBar:React.FC<Props> = ({mobile}) => {
                             </div>
                             <div onClick={showCart} className={styles.nav__money}>
                                 <img src="/svg/cart.svg" alt="cart"/>
-                                <p className={styles.nav__price}><span>1205</span> руб.</p>
+                                    <p className={styles.nav__price}><span>{totalPrice}</span> руб.</p>
                             </div>
                             <div className={styles.nav__favorites}>
                                 <img src="/svg/favorite.svg" alt="favorite"/>

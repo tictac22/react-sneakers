@@ -6,19 +6,10 @@ import { Slider } from "../components/slider.jsx";
 import { useState } from "react";
 import { useGetAllItems } from "../components/hooks/getItems";
 
-export interface CartItem {
-    title:string,
-    price:number,
-    imgUrl:string,
-    id:string,
-    
-}
 export const Home:React.FC =() =>{
   const [searchByname,setSearchByname] = useState<string>("");
   const {isError,isLoading,cartItems} = useGetAllItems();
   const filteredCartItem = cartItems.filter(item=>item.title.toLowerCase().includes(searchByname.toLowerCase().trim()));
-  localStorage.setItem('shopItem', JSON.stringify([]));
-  console.log(searchByname)
   return (
     <div className={styles.app}>
       <Header/>

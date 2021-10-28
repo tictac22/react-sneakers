@@ -1,16 +1,25 @@
 import { useState } from "react";
-import { CartItem } from "../pages/home";
+import { useAppDispatch } from "../redux/hooks";
+import { addToCart, removeFromCart } from "../redux/slicers/shop";
 import styles from "../styles/cart.module.scss";
+import { ICartItem } from "./interfaces";
 
 
-export const Cart:React.FC<CartItem> = ({title,price,imgUrl,id}) => {
-    const [isFavorite,setFavorite] = useState<boolean>(false);
-    const favorite = ():void => {
-        setFavorite(!isFavorite)
-    }
+export const Cart:React.FC<ICartItem> = ({title,price,imgUrl,id}) => {
     const [isAdded,setAdded] = useState<boolean>(false);
+    const [isFavorite,setFavorite] = useState<boolean>(false);
+    const dispatch = useAppDispatch();
     const addTo = ():void => {
+      if(!isAdded) {
         setAdded(!isAdded);
+        dispatch(addToCart({id,price}))
+      } else {
+        setAdded(!isAdded);
+        dispatch(removeFromCart({id,price}))
+      }
+    }
+    const favorite = ():void => {
+        setFavorite(!isFavorite);
     }
     return (
         <div className={styles.cart}>
@@ -30,7 +39,7 @@ export const Cart:React.FC<CartItem> = ({title,price,imgUrl,id}) => {
                 <div className={styles.cart__bottom}>
                     <div className={styles.price}>
                         <div className={styles.price__text}>Цена:</div>
-                        <div className={styles.price__money}><span>{price}</span>руб.</div>
+                        <div className={styles.price__money}><span>{price}</span> руб.</div>
                     </div>
                     <div onClick={addTo} className={styles.price__add}>
                     {isAdded ? 

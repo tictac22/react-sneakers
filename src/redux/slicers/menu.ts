@@ -11,7 +11,7 @@ const initialState: State = {
     showMobileMenu:false
 }
 
-export const menuSlicer = createSlice({
+const slicer = createSlice({
     name:"menu",
     initialState,
     reducers: {
@@ -23,5 +23,5 @@ export const menuSlicer = createSlice({
         }
     }
 })
-export const {checkMenu,checkMobileMenu} = menuSlicer.actions
-export const menuSlice = menuSlicer.reducer
+export const {checkMenu,checkMobileMenu} = slicer.actions
+export const menuSlicer = slicer.reducer
