@@ -62,3 +62,10 @@
         cursor: pointer;
     }
 }
+.loader {
+    border: 1px solid #F3F3F3;
+    border-radius: 40px;
+    &__padding {
+        padding: 36px 30px;
+    }
+    }

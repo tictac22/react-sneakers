@@ -1,8 +1,8 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
-import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
-import React from "react"
+
 import s from "../styles/slider.module.scss"
+
 export const Slider =  () => {
         return (
           <div className={s.slider}>
@@ -13,7 +13,7 @@ export const Slider =  () => {
                 </div>
             <Carousel
             className={s.example} 
-            renderArrowNext={(clickHandler, hasNext, label)=>{
+            renderArrowNext={(clickHandler)=>{
               return (
                 <div onClick={clickHandler} className={s.arrow}>
                   <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">

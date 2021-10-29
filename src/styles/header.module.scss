@@ -67,20 +67,15 @@
     display: flex;
     align-items: center;
     transition: all 0.3s linear;
-    &__unactive {
-
-    }
     &__menu {
         transition: all 0.3s linear;
         @media (max-width:$md) {
             visibility: hidden;
             pointer-events: none;
-            position: absolute;
             position: fixed;
             z-index: 400;
             top: 0;
             right: 0px;
-            //right: -50%;
             width: 150px;
             height: 100%;
             display: flex;
@@ -169,24 +164,20 @@
         }
     }
     &__favorites {
-        width: 21px;
-        height: 19px;
-        margin: 0px 30px;
+        margin-left: 30px;
         & p {
             display: none;
         }
         @media (max-width:$md) {
             margin:10px 0;
         }
-    }
-    &__profile {
-        width: 20px;
-        height: 20px;
-        & p {
-            display: none;
+        &__act {
+            & path {
+                fill: #FFB0B0;
+            }
         }
     }
-    .nav__favorites, .nav__profile, .nav__money {
+    .nav__favorites, .nav__money {
         cursor: pointer;
         @media (max-width:$md) {
                display: flex;

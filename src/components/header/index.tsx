@@ -1,8 +1,13 @@
 
+import {Link} from "react-router-dom";
+
+import { NavBar } from "./navbar";
+
 import { useAppSelector ,useAppDispatch} from "../../redux/hooks";
 import { checkMobileMenu } from "../../redux/slicers/menu";
+
 import styles from "../../styles/header.module.scss";
-import { NavBar } from "./navbar";
+
 export const Header:React.FC = () => {
     const { showMobileMenu} = useAppSelector(state=>state.menu);
     const dispatch = useAppDispatch();
@@ -17,7 +22,7 @@ export const Header:React.FC = () => {
             <div onClick={hideMobileMenu} className={`${styles.header__shadow} ${showMobileMenu ? styles.header__shadow__active : ""}`}></div>
             <div className="container">
                 <div className={styles.header__container}>
-                    <div className={styles.logo}>
+                    <Link to ="/" className={styles.logo}>
                         <div className={styles.logo__img}>
                             <img src="/images/logo.jpg" alt="logo"/>
                         </div>
@@ -27,7 +32,7 @@ export const Header:React.FC = () => {
                             </h2>
                             <p className={styles.logo__subtitle}>Магазин лучших кроссовок</p>
                         </div>
-                    </div>
+                    </Link>
                     <nav className={styles.nav}>
                         <div onClick={toShowMobileMenu} className={styles.nav__burger}>
                             <span></span>

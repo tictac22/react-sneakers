@@ -1,13 +1,17 @@
+
 import { useAppDispatch } from "../../redux/hooks";
 import { checkMenu } from "../../redux/slicers/menu";
+
 import s from "../../styles/shopcart.module.scss";
+
 interface Props {
     title:string,
     imgUrl:string,
     text:string,
     isGreen:boolean
 }
-export const EmptyCart:React.FC<Props> = ({title,imgUrl,text,isGreen}) => {
+
+export const ResultsCart:React.FC<Props> = ({title,imgUrl,text,isGreen}) => {
     const dispatch = useAppDispatch();
     const backTo = () => {
         dispatch(checkMenu(false))

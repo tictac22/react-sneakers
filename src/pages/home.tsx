@@ -1,10 +1,16 @@
-import styles from "../styles/home.module.scss";
+import { useState } from "react";
+
+
+
 import { Header } from '../components/header/';
-import { Cart } from "../components/cart";
+import { Cart } from "../components/cart/";
 import { ShopCart } from "../components/shopCart";
 import { Slider } from "../components/slider.jsx";
-import { useState } from "react";
+import { CartLoader } from "../components/cart/cartLoader";
+
 import { useGetAllItems } from "../components/hooks/getItems";
+
+import styles from "../styles/home.module.scss";
 
 export const Home:React.FC =() =>{
   const [searchByname,setSearchByname] = useState<string>("");
@@ -31,9 +37,9 @@ export const Home:React.FC =() =>{
               placeholder="Поиск..."/>
             </div>
           </div>
-          <div className={styles.main__grid}>
+          <div className="grid">
             {
-              isLoading ? <p>Loading</p> :
+              isLoading ? <CartLoader/> :
               isError ? <p>Error</p> :
               filteredCartItem.map(item=><Cart id={item.id} key={item.id} title={item.title} price={item.price} imgUrl={item.imgUrl}/>)
             }
