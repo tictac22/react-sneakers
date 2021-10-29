@@ -1,4 +1,4 @@
-# react-sneakers app
+# React-sneakers app
 
 Stack of technologies
 - React
