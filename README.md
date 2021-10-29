@@ -5,4 +5,5 @@ Stack of technologies
 - Redux
 - Typescript
 - SCSS module
+
 [Link on my app](https://arcane-tor-63209.herokuapp.com/)
