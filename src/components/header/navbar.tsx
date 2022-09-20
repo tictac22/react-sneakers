@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom"
+import { useHistory, useLocation } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks"
 import { checkMenu, checkMobileMenu } from "../../redux/slicers/menu"
 import styles from "../../styles/header.module.scss"
@@ -11,6 +11,8 @@ export const NavBar: React.FC<Props> = ({ mobile }) => {
 	const { totalPrice } = useAppSelector((state) => state.shop)
 	const dispatch = useAppDispatch()
 	const history = useHistory()
+	const location = useLocation()
+	console.log(location)
 	const showCart = (): void => {
 		dispatch(checkMenu(true))
 		dispatch(checkMobileMenu(false))
@@ -37,7 +39,7 @@ export const NavBar: React.FC<Props> = ({ mobile }) => {
 			<div
 				onClick={goToFavorites}
 				className={`${styles.nav__favorites} 
-            ${history.location.pathname === "/favorites" ? styles.nav__favorites__act : ""}`}
+            ${location.pathname === "/favorites" ? styles.nav__favorites__act : ""}`}
 			>
 				<svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path
@@ -45,7 +47,7 @@ export const NavBar: React.FC<Props> = ({ mobile }) => {
 						fill="#9B9B9B"
 					/>
 				</svg>
-				<p>Избраное</p>
+				<p>Favorite</p>
 			</div>
 		</div>
 	)

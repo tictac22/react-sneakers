@@ -15,7 +15,7 @@ export const ShopCart: React.FC = () => {
 	const hideMenu = (): void => {
 		dispatch(checkMenu(false))
 	}
-	const discount: number = parseInt(((totalPrice / 100) * 5).toFixed(0), 10)
+	const discount = parseInt(((totalPrice / 100) * 5).toFixed(0), 10)
 	const makeOrder = (): void => {
 		setSpinner(!spinner)
 		setTimeout(() => {

@@ -49,8 +49,9 @@ function getFromLocalStorage() {
 	const favoriteSneakers = JSON.parse(window.localStorage.getItem("favoriteSneakers")) || []
 	//@ts-ignore
 	const selectedSneakers = JSON.parse(window.localStorage.getItem("selectedSneakers")) || []
-	const totalPrice = window.localStorage.getItem("totalPrice") ?? 0
-
+	//@ts-ignore
+	let totalPrice = parseInt(window.localStorage.getItem("totalPrice"), 10) ?? 0
+	isNaN(totalPrice) ? (totalPrice = 0) : totalPrice
 	return {
 		favoriteSneakers,
 		selectedSneakers,
