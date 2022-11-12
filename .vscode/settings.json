@@ -1,4 +1,5 @@
 {
-    "javascript.format.semicolons": "insert",
-    "typescript.validate.enable": true,
+	"javascript.format.semicolons": "insert",
+	"typescript.validate.enable": true,
+	"typescript.tsdk": "node_modules\\typescript\\lib"
 }
