@@ -1,13 +1,15 @@
 import "@testing-library/jest-dom"
-import { fireEvent, render, screen } from "@testing-library/react" // (or /dom, /vue, ...)
+import { fireEvent, render, RenderResult, screen } from "@testing-library/react" // (or /dom, /vue, ...)
 import { Counter } from "../components/counter"
 
 describe("counter", () => {
+	let component: RenderResult
 	beforeEach(() => {
-		render(<Counter />)
+		component = render(<Counter />)
 	})
 	it("mounts", () => {
 		expect(screen.getByText("Counter: 0")).not.toBeNull()
+		expect(component.asFragment()).toMatchSnapshot()
 	})
 
 	it("increments", () => {

@@ -22,6 +22,7 @@
 	"scripts": {
 		"start": "cross-env BROWSER=none react-scripts start",
 		"test": "jest",
+		"coverage": "jest --coverage",
 		"build": "react-scripts build"
 	},
 	"browserslist": {
