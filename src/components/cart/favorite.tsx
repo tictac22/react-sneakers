@@ -15,7 +15,7 @@ export const Favorite = ({ title, price, img, id }: CartItem) => {
 			: dispatch(toFavorite({ title, price, img, type: "add", id }))
 	}
 	return (
-		<div onClick={favorite} className={styles.cart__favorite}>
+		<div aria-label="to favorite" onClick={favorite} className={styles.cart__favorite}>
 			{isInFavoties ? (
 				<img alt="favorite" src="/images/favorite.jpg" />
 			) : (

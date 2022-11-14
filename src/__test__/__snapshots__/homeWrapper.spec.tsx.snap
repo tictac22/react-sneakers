@@ -1,0 +1,211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Wrapper fails render 1`] = `
+<DocumentFragment>
+  <div>
+    <h1>
+      All sneakers
+    </h1>
+    <div>
+      <img
+        alt="search"
+        src="/svg/search.svg"
+      />
+      <input
+        class="undefined"
+        disabled=""
+        maxlength="30"
+        placeholder="Searching..."
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    class="grid"
+  >
+    <p
+      aria-label="error"
+    >
+      Error
+    </p>
+  </div>
+   
+</DocumentFragment>
+`;
+
+exports[`Home Wrapper filters by input 1`] = `
+<DocumentFragment>
+  <div>
+    <h1>
+      Result on request: 'Nike Blazer'
+    </h1>
+    <div>
+      <img
+        alt="search"
+        src="/svg/search.svg"
+      />
+      <input
+        class="undefined"
+        maxlength="30"
+        placeholder="Searching..."
+        value="Nike Blazer"
+      />
+    </div>
+  </div>
+  <div
+    class="grid"
+  >
+    <div
+      aria-label="Nike Blazer Mid '77 Vintage Men's"
+    >
+      <div>
+        <div
+          aria-label="to favorite"
+        >
+          <img
+            alt="unfavorite"
+            src="/images/unfavorite.jpg"
+          />
+        </div>
+        <div>
+          <img
+            alt="shoes"
+            src="/images/shoes/img1.jpg"
+          />
+        </div>
+        <h3>
+          Nike Blazer Mid '77 Vintage Men's
+        </h3>
+        <div>
+          <div>
+            <div>
+              Cost
+            </div>
+            <div>
+              <span>
+                $215
+              </span>
+            </div>
+          </div>
+          <div>
+            <img
+              alt="plus"
+              src="/svg/plus.svg"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+</DocumentFragment>
+`;
+
+exports[`Home Wrapper renders succesfully 1`] = `
+<DocumentFragment>
+  <div>
+    <h1>
+      All sneakers
+    </h1>
+    <div>
+      <img
+        alt="search"
+        src="/svg/search.svg"
+      />
+      <input
+        class="undefined"
+        maxlength="30"
+        placeholder="Searching..."
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    class="grid"
+  >
+    <div
+      aria-label="Nike Blazer Mid '77 Vintage Men's"
+    >
+      <div>
+        <div
+          aria-label="to favorite"
+        >
+          <img
+            alt="unfavorite"
+            src="/images/unfavorite.jpg"
+          />
+        </div>
+        <div>
+          <img
+            alt="shoes"
+            src="/images/shoes/img1.jpg"
+          />
+        </div>
+        <h3>
+          Nike Blazer Mid '77 Vintage Men's
+        </h3>
+        <div>
+          <div>
+            <div>
+              Cost
+            </div>
+            <div>
+              <span>
+                $215
+              </span>
+            </div>
+          </div>
+          <div>
+            <img
+              alt="plus"
+              src="/svg/plus.svg"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-label="Men's Nike Air Max 270"
+    >
+      <div>
+        <div
+          aria-label="to favorite"
+        >
+          <img
+            alt="unfavorite"
+            src="/images/unfavorite.jpg"
+          />
+        </div>
+        <div>
+          <img
+            alt="shoes"
+            src="/images/shoes/img2.jpg"
+          />
+        </div>
+        <h3>
+          Men's Nike Air Max 270
+        </h3>
+        <div>
+          <div>
+            <div>
+              Cost
+            </div>
+            <div>
+              <span>
+                $260
+              </span>
+            </div>
+          </div>
+          <div>
+            <img
+              alt="plus"
+              src="/svg/plus.svg"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+</DocumentFragment>
+`;

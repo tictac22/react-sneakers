@@ -1,4 +1,4 @@
-import { fireEvent, render, RenderResult, screen } from "@testing-library/react" // (or /dom, /vue, ...)
+import { fireEvent, render, RenderResult, screen } from "@testing-library/react"
 import { Counter } from "../components/counter"
 
 describe("counter", () => {

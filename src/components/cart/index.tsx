@@ -5,7 +5,7 @@ import { Favorite } from "./favorite"
 
 export const Cart: React.FC<ICartItem> = (props) => {
 	return (
-		<div className={styles.cart}>
+		<div aria-label={`${props.title}`} className={styles.cart}>
 			<div className={styles.cart__inner}>
 				<Favorite {...props} />
 				<div className={styles.cart__img}>

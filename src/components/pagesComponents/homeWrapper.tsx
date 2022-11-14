@@ -34,7 +34,7 @@ export const HomeWrapper = () => {
 				{isLoading ? (
 					<CartLoader />
 				) : isError ? (
-					<p>Error</p>
+					<p aria-label="error">Error</p>
 				) : (
 					filteredCartItem.map((item) => <Cart key={item.id} {...item} />)
 				)}

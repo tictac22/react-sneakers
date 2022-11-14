@@ -31,8 +31,9 @@ describe("Header navbar component", () => {
 		dispatch.mockClear()
 	})
 	it("mounts", () => {
-		renderWithRouter({ children: <NavBar mobile={false} /> })
+		const { view } = renderWithRouter({ children: <NavBar mobile={false} /> })
 		expect(screen.getByText("Favorite")).toBeInTheDocument()
+		expect(view.asFragment()).toMatchSnapshot()
 	})
 
 	it("show the cart", async () => {
