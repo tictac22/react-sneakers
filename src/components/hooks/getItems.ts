@@ -7,16 +7,16 @@ export const useGetAllItems = () => {
 	const [cartItems, setCartItems] = useState<ICartItem[]>([])
 	useEffect(() => {
 		const request = async (): Promise<void> => {
-			setLoading(true)
 			try {
+				setLoading(true)
 				const response = await fetch("https://631527a95b85ba9b11dcd427.mockapi.io/sneakers")
 				const json = await response.json()
 				setCartItems(json)
-				setLoading(false)
 			} catch (e) {
 				console.log(e)
-				setLoading(false)
 				setError(true)
+			} finally {
+				setLoading(false)
 			}
 		}
 		request()

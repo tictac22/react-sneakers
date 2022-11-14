@@ -41,12 +41,15 @@
 		"@testing-library/dom": "^8.19.0",
 		"@testing-library/jest-dom": "^5.16.5",
 		"@testing-library/react": "12.1.4",
+		"@testing-library/react-hooks": "^8.0.1",
 		"@testing-library/user-event": "^14.4.3",
 		"@types/jest": "^29.2.2",
 		"history": "^5.3.0",
 		"jest": "^29.3.1",
 		"jest-environment-jsdom": "^29.3.1",
 		"jest-transform-stub": "^2.0.0",
-		"ts-jest": "^29.0.3"
+		"msw": "^0.48.2",
+		"ts-jest": "^29.0.3",
+		"whatwg-fetch": "^3.6.2"
 	}
 }

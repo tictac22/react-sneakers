@@ -12,7 +12,6 @@ export const NavBar: React.FC<Props> = ({ mobile }) => {
 	const dispatch = useAppDispatch()
 	const history = useHistory()
 	const location = useLocation()
-	console.log(location)
 	const showCart = (): void => {
 		dispatch(checkMenu(true))
 		dispatch(checkMobileMenu(false))
