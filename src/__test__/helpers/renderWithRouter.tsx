@@ -1,9 +1,14 @@
 import { render } from "@testing-library/react"
-import { MemoryRouter } from "react-router"
+import { createMemoryHistory } from "history"
+import { Router } from "react-router"
 
 type Params = {
 	children: React.ReactNode
 }
 export const renderWithRouter = ({ children }: Params) => {
-	return render(<MemoryRouter>{children}</MemoryRouter>)
+	const history = createMemoryHistory()
+	return {
+		view: render(<Router history={history}>{children}</Router>),
+		history,
+	}
 }

@@ -25,11 +25,11 @@ export const NavBar: React.FC<Props> = ({ mobile }) => {
 	}
 	return (
 		<div className={`${styles.nav__menu} ${mobile ? `${styles.nav__active}` : `${styles.nav__unactive}`}`}>
-			<div onClick={closeMobileMenu} className={styles.nav__close}>
+			<div aria-label="close menu" onClick={closeMobileMenu} className={styles.nav__close}>
 				<img src="/svg/close.svg" />
 				<p>hide</p>
 			</div>
-			<div onClick={showCart} className={styles.nav__money}>
+			<div aria-label="show cart" onClick={showCart} className={styles.nav__money}>
 				<img src="/svg/cart.svg" alt="cart" />
 				<p className={styles.nav__price}>
 					<span>${totalPrice}</span>

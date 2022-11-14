@@ -1,7 +1,16 @@
 import { screen } from "@testing-library/dom"
 import userEvent from "@testing-library/user-event"
 import { NavBar } from "../components/header/navbar"
-import { CombinedRender } from "./helpers/combinedRender"
+import * as reduxHooks from "../redux/hooks"
+import * as reduxActions from "../redux/slicers/menu"
+import { renderWithRouter } from "./helpers/renderWithRouter"
+
+const enum AriaLabels {
+	closeMenu = "close menu",
+	showCart = "show cart",
+	goToFavorite = "go to favorite",
+}
+
 const fakeStore = {
 	shop: {
 		totalPrice: 30000,
@@ -10,16 +19,46 @@ const fakeStore = {
 	},
 }
 
+jest.mock("../redux/hooks")
+const dispatch = jest.fn()
+jest.mocked(reduxHooks).useAppSelector.mockReturnValue(fakeStore)
+jest.mocked(reduxHooks).useAppDispatch.mockImplementation(() => dispatch)
+
+const mockedCheckMobileMenu = jest.spyOn(reduxActions, "checkMobileMenu")
+const mockedCheckMenu = jest.spyOn(reduxActions, "checkMenu")
 describe("Header navbar component", () => {
+	afterEach(() => {
+		dispatch.mockClear()
+	})
 	it("mounts", () => {
-		CombinedRender({ children: <NavBar mobile={false} />, store: fakeStore })
+		renderWithRouter({ children: <NavBar mobile={false} /> })
 		expect(screen.getByText("Favorite")).toBeInTheDocument()
 	})
 
-	it("goes to new page", async () => {
-		CombinedRender({ children: <NavBar mobile={false} />, store: fakeStore })
-		await userEvent.click(screen.getByLabelText("go to favorite"))
+	it("show the cart", async () => {
+		renderWithRouter({ children: <NavBar mobile={false} /> })
+		await userEvent.click(screen.getByLabelText(AriaLabels.showCart))
 
-		expect(screen.getByTestId("true")).toBeInTheDocument()
+		expect(dispatch).toBeCalledTimes(2)
+
+		expect(mockedCheckMenu).toBeCalledWith(true)
+		expect(mockedCheckMobileMenu).toBeCalledWith(false)
+	})
+	it("closes mobile menu", async () => {
+		renderWithRouter({ children: <NavBar mobile={false} /> })
+
+		await userEvent.click(screen.getByLabelText(AriaLabels.closeMenu))
+
+		expect(dispatch).toBeCalledTimes(1)
+
+		expect(mockedCheckMobileMenu).toBeCalledWith(false)
+	})
+	it("goes to favorites", async () => {
+		const { history } = renderWithRouter({ children: <NavBar mobile={false} /> })
+		await userEvent.click(screen.getByLabelText(AriaLabels.goToFavorite))
+		expect(history.location.pathname).toEqual("/favorites")
+
+		expect(dispatch).toBeCalledTimes(1)
+		expect(mockedCheckMobileMenu).toBeCalledWith(false)
 	})
 })
