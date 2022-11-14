@@ -17,6 +17,7 @@ export const Header: React.FC = () => {
 		<header className={styles.header}>
 			<div
 				onClick={hideMobileMenu}
+				data-testid={`${showMobileMenu ? "openedMenu" : "closedMenu"}`}
 				className={`${styles.header__shadow} ${showMobileMenu ? styles.header__shadow__active : ""}`}
 			></div>
 			<div className="container">
@@ -31,7 +32,7 @@ export const Header: React.FC = () => {
 						</div>
 					</Link>
 					<nav className={styles.nav}>
-						<div onClick={toShowMobileMenu} className={styles.nav__burger}>
+						<div aria-label="open menu" onClick={toShowMobileMenu} className={styles.nav__burger}>
 							<span></span>
 						</div>
 						<NavBar mobile={showMobileMenu} />

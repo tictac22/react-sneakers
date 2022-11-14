@@ -1,5 +1,4 @@
 import { screen } from "@testing-library/dom"
-import "@testing-library/jest-dom"
 import userEvent from "@testing-library/user-event"
 import { NavBar } from "../components/header/navbar"
 import { CombinedRender } from "./helpers/combinedRender"
@@ -10,9 +9,7 @@ const fakeStore = {
 		shopItems: [],
 	},
 }
-// jest.mock("react-router-dom", () => ({
-// 	useHistory: () => jest.fn(),
-// }))
+
 describe("Header navbar component", () => {
 	it("mounts", () => {
 		CombinedRender({ children: <NavBar mobile={false} />, store: fakeStore })
