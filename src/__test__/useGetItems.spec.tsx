@@ -37,4 +37,18 @@ describe("useGetAllItems hooks", () => {
 		expect(result.current.isError).toBeFalsy()
 		expect(result.current.cartItems[0].title).toEqual("Nike Blazer Mid '77 Vintage Men's")
 	})
+	it("fails get data", async () => {
+		server.use(
+			rest.get("https://631527a95b85ba9b11dcd427.mockapi.io/sneakers", (req, res, ctx) => {
+				return res(ctx.status(500))
+			})
+		)
+
+		const { result, waitForNextUpdate } = renderHook(() => useGetAllItems())
+		await waitForNextUpdate()
+
+		expect(result.current.isLoading).toBeFalsy()
+		expect(result.current.isError).toBeTruthy()
+		expect(result.current.cartItems.length).toEqual(0)
+	})
 })
