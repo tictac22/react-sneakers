@@ -1,192 +1,194 @@
-@import "./variables";
+@import "./_variables";
 .header {
-    padding-top: 44px;
-    position: relative;
-    &__container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-bottom: 44px;
-        border-bottom: 1px solid #F4F4F4;
-    }
-    @media (max-width:$md) {
-        &__shadow {
-            opacity: 0.5;
-            width: 100vw;
-            height: 100vh;
-            background: #000000;
-            position: fixed;
-            top:0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 100;
-            cursor: pointer;
-            visibility: hidden;
-            pointer-events: none;
-            right: -100%;
-            
-            &__active {
-                visibility: visible;
-                pointer-events: all;
-                right: 0;
-            }
-        }
+	padding-top: 44px;
+	position: relative;
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-bottom: 44px;
+		border-bottom: 1px solid #f4f4f4;
+	}
+	@media (max-width: $md) {
+		&__shadow {
+			opacity: 0.5;
+			width: 100vw;
+			height: 100vh;
+			background: #000000;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 100;
+			cursor: pointer;
+			visibility: hidden;
+			pointer-events: none;
+			right: -100%;
 
-    }
+			&__active {
+				visibility: visible;
+				pointer-events: all;
+				right: 0;
+			}
+		}
+	}
 }
 .logo {
-    display: flex;
-    align-items: center;
-    &__text {
-        margin-left: 16px;
-        display: flex;
-        flex-direction: column;
-    }
-    &__title, &__subtitle {
-        display: none;
-        @media (min-width:$sm) {
-            display: block;
-        }
-    }
-    &__title {
-            @media (min-width:$sm) {
-                font-weight: bold;
-                font-size: 20px;
-                color:$black;
-            }
-    }
-    &__subtitle {
-            @media (min-width:$md) {
-                font-weight: normal;
-                color: $grayother;
-            }
-    }
+	display: flex;
+	align-items: center;
+	&__text {
+		margin-left: 16px;
+		display: flex;
+		flex-direction: column;
+	}
+	&__title,
+	&__subtitle {
+		display: none;
+		@media (min-width: $sm) {
+			display: block;
+		}
+	}
+	&__title {
+		@media (min-width: $sm) {
+			font-weight: bold;
+			font-size: 20px;
+			color: $black;
+		}
+	}
+	&__subtitle {
+		@media (min-width: $md) {
+			font-weight: normal;
+			color: $grayother;
+		}
+	}
 }
 .nav {
-    display: flex;
-    align-items: center;
-    transition: all 0.3s linear;
-    &__menu {
-        transition: all 0.3s linear;
-        @media (max-width:$md) {
-            visibility: hidden;
-            pointer-events: none;
-            position: fixed;
-            z-index: 400;
-            top: 0;
-            right: 0px;
-            width: 150px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 10px;
-            background-color: #fff;
-            box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
-            transform: translateX(100%);
-        }
-    }
-    &__active {
-        transition: all 0.3s linear;    
-        pointer-events: all;
-        visibility: visible;
-        transform: translateX(0);
-        right: 0;        
+	display: flex;
+	align-items: center;
+	transition: all 0.3s linear;
+	&__menu {
+		transition: all 0.3s linear;
+		@media (max-width: $md) {
+			visibility: hidden;
+			pointer-events: none;
+			position: fixed;
+			z-index: 400;
+			top: 0;
+			right: 0px;
+			width: 150px;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 10px;
+			background-color: #fff;
+			box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+			transform: translateX(100%);
+		}
+	}
+	&__active {
+		transition: all 0.3s linear;
+		pointer-events: all;
+		visibility: visible;
+		transform: translateX(0);
+		right: 0;
+	}
+	&__close {
+		display: none;
+		@media (max-width: $md) {
+			display: flex;
+			align-items: center;
+			position: absolute;
+			right: 20px;
+			top: 20px;
+			cursor: pointer;
+			& img {
+				width: 20px;
+				height: 20px;
+				margin-right: 4px;
+			}
+		}
+	}
+	&__burger {
+		width: 22px;
+		height: 15px;
+		display: block;
+		cursor: pointer;
+		position: relative;
 
-    }
-    &__close {
-        display: none;
-        @media(max-width: $md) { 
-            display: flex;
-            align-items: center;
-            position: absolute;
-            right: 20px;
-            top:20px;
-            cursor: pointer;
-            & img {
-                width: 20px;
-                height: 20px;
-                margin-right: 4px;
-            }
-        }
-    }
-    &__burger {
-        width: 22px;
-        height: 15px;
-        display: block;
-        cursor: pointer;
-        position: relative;
-        
-        & span,&:before,&:after {
-            position: absolute;
-            left:0;
-            width: 100%;
-            height: 5%;
-            background-color: $gray;
-        }
-        &:before, &:after {
-            content: "";
-        }
-        &:before {
-            top: 0;
-        }
-        &:after {
-            bottom: 0;
-        }
-        & span {
-            top: 50%;
-            transform: translate(0%,-50%);
-        }
-        @media (min-width:$md) {
-            display: none;
-        }
-    }
-    &__menu {
-        @media (min-width:$md) {
-            display: flex;
-            align-items: center;
-        }
-    }
-    &__cart {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-    }
-    &__money {
-        display: flex;
-        align-items: center;
-        font-weight: 600;
-        color: #5C5C5C;
-        font-style: normal;
-        & p {
-            margin-left: 10px;
-        }
-    }
-    &__favorites {
-        margin-left: 30px;
-        & p {
-            display: none;
-        }
-        @media (max-width:$md) {
-            margin:10px 0;
-        }
-        &__act {
-            & path {
-                fill: #FFB0B0;
-            }
-        }
-    }
-    .nav__favorites, .nav__money {
-        cursor: pointer;
-        @media (max-width:$md) {
-               display: flex;
-               align-items: center;
-               & p {
-                   margin-left: 12px;
-                   display: block;
-               }
-           
-       }
-    }
+		& span,
+		&:before,
+		&:after {
+			position: absolute;
+			left: 0;
+			width: 100%;
+			height: 5%;
+			background-color: $gray;
+		}
+		&:before,
+		&:after {
+			content: "";
+		}
+		&:before {
+			top: 0;
+		}
+		&:after {
+			bottom: 0;
+		}
+		& span {
+			top: 50%;
+			transform: translate(0%, -50%);
+		}
+		@media (min-width: $md) {
+			display: none;
+		}
+	}
+	&__menu {
+		@media (min-width: $md) {
+			display: flex;
+			align-items: center;
+		}
+	}
+	&__cart {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+	}
+	&__money {
+		display: flex;
+		align-items: center;
+		font-weight: 600;
+		color: #5c5c5c;
+		font-style: normal;
+		& p {
+			margin-left: 10px;
+		}
+	}
+	&__favorites {
+		margin-left: 30px;
+		& p {
+			display: none;
+		}
+		@media (max-width: $md) {
+			margin: 10px 0;
+		}
+		&__act {
+			& path {
+				fill: #ffb0b0;
+			}
+		}
+	}
+	.nav__favorites,
+	.nav__money {
+		cursor: pointer;
+		@media (max-width: $md) {
+			display: flex;
+			align-items: center;
+			& p {
+				margin-left: 12px;
+				display: block;
+			}
+		}
+	}
 }

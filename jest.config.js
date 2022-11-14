@@ -9,6 +9,7 @@ module.exports = {
 			// https://kulshekhar.github.io/ts-jest/docs/getting-started/options/tsconfig
 			{ tsconfig: "./tsconfig.json" },
 		],
+		".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub",
 	},
 }
 

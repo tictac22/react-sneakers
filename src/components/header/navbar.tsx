@@ -21,14 +21,14 @@ export const NavBar: React.FC<Props> = ({ mobile }) => {
 		dispatch(checkMobileMenu(false))
 	}
 	const goToFavorites = () => {
-		history.push("/favorites")
 		dispatch(checkMobileMenu(false))
+		history.push("/favorites")
 	}
 	return (
 		<div className={`${styles.nav__menu} ${mobile ? `${styles.nav__active}` : `${styles.nav__unactive}`}`}>
 			<div onClick={closeMobileMenu} className={styles.nav__close}>
 				<img src="/svg/close.svg" />
-				<p>Cкрыть</p>
+				<p>hide</p>
 			</div>
 			<div onClick={showCart} className={styles.nav__money}>
 				<img src="/svg/cart.svg" alt="cart" />
@@ -37,8 +37,11 @@ export const NavBar: React.FC<Props> = ({ mobile }) => {
 				</p>
 			</div>
 			<div
+				id="favorite"
 				onClick={goToFavorites}
-				className={`${styles.nav__favorites} 
+				aria-label="go to favorite"
+				data-testid={`${location.pathname === "/favorites"}`}
+				className={`${styles.nav__favorites}
             ${location.pathname === "/favorites" ? styles.nav__favorites__act : ""}`}
 			>
 				<svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
